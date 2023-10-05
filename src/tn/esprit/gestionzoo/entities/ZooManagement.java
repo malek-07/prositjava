@@ -1,3 +1,5 @@
+package tn.esprit.gestionzoo.entities;
+
 public class ZooManagement {
 
     private String zooName;
@@ -26,4 +28,5 @@ public class ZooManagement {
     public int getNumberOfCages() {
         return numberOfCages;
     }
+
 }

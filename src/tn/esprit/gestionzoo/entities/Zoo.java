@@ -1,10 +1,49 @@
+package tn.esprit.gestionzoo.entities;
+
 public class Zoo {
-    public Animal[] animals;
-    public String name;
-    public String city;
-    public final int nbrCages = 25;
-    public int nbrAnimaux = 0;
-    public Zoo(int nbrAnimals,String name, String city) {
+    private Animal[] animals;
+    private String name;
+    private String city;
+    private final int nbrCages = 25;
+    private int nbrAnimaux = 0;
+
+    public Animal[] getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(Animal[] animals) {
+        this.animals = animals;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public int getNbrCages() {
+        return nbrCages;
+    }
+
+    public int getNbrAnimaux() {
+        return nbrAnimaux;
+    }
+
+    public void setNbrAnimaux(int nbrAnimaux) {
+        this.nbrAnimaux = nbrAnimaux;
+    }
+
+    public Zoo(int nbrAnimals, String name, String city) {
         if (nbrAnimals>nbrCages)
         {
             System.out.println("Number of animals must be below number of cages(25)");
@@ -17,12 +56,12 @@ public class Zoo {
     public boolean addAnimal(Animal animal){
         if (searchAnimal(animal)!=-1)
         {
-         return false;
+            return false;
         }
         // System.out.println(animal.name+" ADDING ----");
         if (!isZooFull()) {
             this.animals[nbrAnimaux] = animal;
-         //   System.out.println("INDICE : "+nbrAnimaux++);
+            //   System.out.println("INDICE : "+nbrAnimaux++);
             nbrAnimaux++;
             return true;
         }
@@ -55,7 +94,7 @@ public class Zoo {
         if (this.animals[0]!=null)
         {
             for (i = 0; i < nbrAnimaux; i++) {
-                System.out.println("Animal[" + i + "] = family=" + animals[i].family + " | name = " + animals[i].name + " | age =" + animals[i].age + "| Mammal = " + ((animals[i].isMammal) ? "yes" : "no"));
+                System.out.println("Animal[" + i + "] = family=" + animals[i].getFamily() + " | name = " + animals[i].getName() + " | age =" + animals[i].getAge() + "| Mammal = " + ((animals[i].isMammal()) ? "yes" : "no"));
             }
         }
     }
@@ -63,7 +102,7 @@ public class Zoo {
     {
         for (int i = 0; i < nbrAnimaux; i++) {
             if (this.animals[i]!=null) {
-                if (animals[i].name.equals(animal.name)) {
+                if (animals[i].getName().equals(animal.getName())) {
                     return i;
                 }
             }
